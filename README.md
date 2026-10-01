@@ -32,8 +32,8 @@
 ### 一键安装（推荐）
 
 ```bash
-git clone https://github.com/getthelostcode/hysteria-node-agent.git
-cd hysteria-node-agent
+git clone https://github.com/getthelostcode/hysteria-server.git
+cd hysteria-server/hysteria-node-agent
 sudo ./install.sh http://<linux1_ip>:<port>
 
 # 带 Hysteria 本地 API 地址与 secret（secret 为空时会提示补填）
