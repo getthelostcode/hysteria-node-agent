@@ -333,6 +333,14 @@ X-Signature: hex(HMAC-SHA256(secret,
 
 ```
 hysteria-node-agent/
+├── sql/                        # Hysteria VPN 聚合平台 MySQL 8 数据库设计（DDL + 一键建库）
+│   ├── README.md               # 设计文档：ER 关系 / 表清单 / 关键查询 / 流程伪代码
+│   ├── 00_create_database.sql  # 建库 + 会话基线
+│   ├── 01…06_*.sql             # 按外键依赖排列的建表脚本
+│   ├── 07_triggers_optional.sql# 可选：区间不重叠 + 定价只增不改
+│   ├── 08_partition_maintenance.sql
+│   ├── 09_reconciliation_queries.sql
+│   └── apply.sh                # 一键建库（./apply.sh --with-triggers --verify）
 ├── main.go                     # 入口：配置加载、两个循环、信号处理
 ├── config.go                   # config.yaml 解析、默认值、校验
 ├── hysteria.go                 # Hysteria 2 API 客户端（/traffic /kick /online）
